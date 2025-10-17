@@ -8,9 +8,9 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Deep charcoal base - nearly black with warmth */
-    --background: 222 40% 5%;
-    --foreground: 216 12% 90%;
+    /* Pure black base */
+    --background: 0 0% 0%;
+    --foreground: 0 0% 93%;
 
     /* Glass card surfaces with transparency */
     --card: 222 35% 8%;
