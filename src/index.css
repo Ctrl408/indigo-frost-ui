@@ -8,53 +8,45 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Pure black base */
+    /* Pure black background */
     --background: 0 0% 0%;
-    --foreground: 0 0% 93%;
+    --foreground: 0 0% 95%;
 
-    /* Glass card surfaces with transparency */
-    --card: 222 35% 8%;
-    --card-foreground: 216 12% 92%;
+    /* Dark surfaces - no transparency */
+    --card: 0 0% 8%;
+    --card-foreground: 0 0% 95%;
 
     /* Popover surfaces */
-    --popover: 222 40% 6%;
-    --popover-foreground: 216 12% 92%;
+    --popover: 0 0% 8%;
+    --popover-foreground: 0 0% 95%;
 
     /* Indigo accent - primary interactive color */
     --primary: 238 77% 62%;
     --primary-foreground: 0 0% 100%;
-    --primary-glow: 238 100% 70%;
 
-    /* Muted indigo secondary */
-    --secondary: 238 30% 20%;
-    --secondary-foreground: 216 12% 90%;
+    /* Dark secondary */
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 90%;
 
     /* Muted backgrounds and text */
-    --muted: 222 25% 12%;
-    --muted-foreground: 220 9% 62%;
+    --muted: 0 0% 10%;
+    --muted-foreground: 0 0% 60%;
 
     /* Subtle accent surfaces */
-    --accent: 238 50% 15%;
+    --accent: 0 0% 12%;
     --accent-foreground: 238 77% 75%;
 
     /* Destructive/error states */
     --destructive: 0 70% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    /* Borders with subtle indigo tint */
-    --border: 238 20% 18%;
-    --input: 238 20% 18%;
+    /* Borders */
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
     --ring: 238 77% 62%;
-
-    /* Glass effect properties */
-    --glass-bg: 222 35% 8% / 0.6;
-    --glass-border: 238 50% 50% / 0.15;
-    --glass-glow: 238 100% 70% / 0.25;
 
     /* Rounded corners */
     --radius: 1rem;
-    --radius-lg: 1.25rem;
-    --radius-xl: 1.875rem;
 
     /* Transitions */
     --transition-smooth: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
@@ -64,12 +56,7 @@ All colors MUST be HSL.
 /* Custom glass utilities */
 @layer utilities {
   .glass-panel {
-    @apply bg-card/60 backdrop-blur-xl border border-border/50;
-  }
-  
-  .glass-glow {
-    box-shadow: 0 0 20px hsl(var(--glass-glow)), 
-                0 4px 6px -1px rgb(0 0 0 / 0.3);
+    @apply bg-card border border-border;
   }
   
   .glass-hover {
@@ -77,12 +64,11 @@ All colors MUST be HSL.
   }
   
   .indigo-glow {
-    box-shadow: 0 0 24px hsl(var(--primary) / 0.4),
-                0 0 12px hsl(var(--primary) / 0.2);
+    box-shadow: 0 0 16px hsl(238 77% 62% / 0.3);
   }
 
   .text-glow {
-    text-shadow: 0 0 20px hsl(var(--primary-glow) / 0.5);
+    text-shadow: 0 0 16px hsl(238 77% 62% / 0.4);
   }
 }
 
