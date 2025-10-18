@@ -14,7 +14,124 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      filters: {
+        Row: {
+          column_to_filter: string
+          created_at: string
+          filter_type: string
+          id: number
+          label: string
+          session_id: number
+          user_id: string
+        }
+        Insert: {
+          column_to_filter: string
+          created_at?: string
+          filter_type: string
+          id?: number
+          label: string
+          session_id: number
+          user_id: string
+        }
+        Update: {
+          column_to_filter?: string
+          created_at?: string
+          filter_type?: string
+          id?: number
+          label?: string
+          session_id?: number
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "filters_session_id_fkey"
+            columns: ["session_id"]
+            isOneToOne: false
+            referencedRelation: "sessions"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      sessions: {
+        Row: {
+          created_at: string
+          id: number
+          name: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: number
+          name: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: number
+          name?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      visualizations: {
+        Row: {
+          chart_type: string
+          created_at: string
+          generated_sql: string | null
+          height: number
+          id: number
+          nl_question: string | null
+          pos_x: number
+          pos_y: number
+          refresh_interval: number
+          session_id: number
+          updated_at: string
+          user_id: string
+          width: number
+        }
+        Insert: {
+          chart_type: string
+          created_at?: string
+          generated_sql?: string | null
+          height?: number
+          id?: number
+          nl_question?: string | null
+          pos_x?: number
+          pos_y?: number
+          refresh_interval?: number
+          session_id: number
+          updated_at?: string
+          user_id: string
+          width?: number
+        }
+        Update: {
+          chart_type?: string
+          created_at?: string
+          generated_sql?: string | null
+          height?: number
+          id?: number
+          nl_question?: string | null
+          pos_x?: number
+          pos_y?: number
+          refresh_interval?: number
+          session_id?: number
+          updated_at?: string
+          user_id?: string
+          width?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "visualizations_session_id_fkey"
+            columns: ["session_id"]
+            isOneToOne: false
+            referencedRelation: "sessions"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never
